@@ -1,37 +1,49 @@
-presentation
+BMI: calculate your Body Mass Index now
 ========================================================
-author: 
-date: 
+author: mickfenneck
+date: 22/02/2015
 
-First Slide
-========================================================
-
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+Why
 ========================================================
 
+I chose this subject because:
+
+- it's pretty easy to develop
+- it's a simple ui-server app
+- I was very busy with my work
+
+
+How
+========================================================
+
+The code, like in every shiny app, is divided in two part:
+
+- ui.R: containing the interface
+- server.R: containg the calculus
+
+
+How it works
+========================================================
+You can choose you weight and height
 
 ```r
-summary(cars)
+weight<-69
+height<-1.7
+```
+And have the calculation done
+
+```r
+BMI_value<-weight/(height^2)
+ifelse(BMI_value<18.5,"underweight", ifelse(BMI_value<25, "normal weight", ifelse(BMI_value<30,"overweight","obesity")))
 ```
 
 ```
-     speed           dist    
- Min.   : 4.0   Min.   :  2  
- 1st Qu.:12.0   1st Qu.: 26  
- Median :15.0   Median : 36  
- Mean   :15.4   Mean   : 43  
- 3rd Qu.:19.0   3rd Qu.: 56  
- Max.   :25.0   Max.   :120  
+[1] "normal weight"
 ```
 
-Slide With Plot
+Where can I find it?
 ========================================================
 
-![plot of chunk unnamed-chunk-2](presentation-figure/unnamed-chunk-2.png) 
+The app is hosted on shinyapps.io at https://mickfenneck.shinyapps.io/weight/
+
+You can find the R code at https://github.com/mickfenneck/devdataprod
